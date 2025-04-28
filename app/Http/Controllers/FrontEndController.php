@@ -41,7 +41,7 @@ class FrontEndController extends Controller
     public function prodcutView ($product_id){
         $product = Product::with('images')->findOrFail($product_id); 
         $relatedProducts = Product::with('images')->where('category', $product->category)->where('status',1)->limit(10)->get();
-        return Inertia::render('productView',
+        return Inertia::render('FrontEnd/ProductView',
                                 [   'product' => $product,
                                     'relatedProducts'=> $relatedProducts
                                 ]);

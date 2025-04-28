@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply px-3 py-1 bg-gray-500 text-white rounded-md hover:bg-gray-700;
+}
+
+.preview h1,
+h2,
+h3 {
+    @apply text-gray-900 mb-2;
+}
+.preview h1 {
+    @apply text-3xl font-bold;
+}
+.preview h2 {
+    @apply text-2xl font-bold;
+}
+.preview h3 {
+    @apply text-xl font-semibold;
+}
+.preview del {
+    @apply text-red-600;
+}
+.preview ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.preview ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.preview li {
+    margin-bottom: 5px;
+}
+.preview pre {
+    @apply bg-gray-400 text-black p-3 rounded overflow-x-auto;
+}
+.preview blockquote {
+    @apply border-l-4 border-blue-500 pl-3 italic text-gray-600;
+}
+.preview table {
+    @apply w-full border-collapse mt-2;
+}
+
+/* Wrap tables inside a div with overflow-x-auto */
+.preview table {
+    display: block;
+    @apply overflow-x-auto w-full;
+}
+.preview th,
+.preview td {
+    @apply border px-3 py-2;
+}
+.preview th {
+    @apply bg-blue-500 text-white;
+}
+.preview img {
+    @apply rounded-lg;
+}
