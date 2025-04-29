@@ -136,7 +136,7 @@ const abilableProducts = () => {
                     >
                         <td class="p-4">
                             <img
-                                :src="`/uploads/products/${item.images[0].image}`"
+                                :src="`/upload/products/${item.images[0].image}`"
                                 class="w-16 md:w-32 max-w-full max-h-full rounded-lg"
                                 alt="product Image"
                             />

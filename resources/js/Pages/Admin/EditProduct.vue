@@ -18,12 +18,12 @@ const form = useForm({
     backendImages: [],
     productImages: props.product.images.map((image) => ({
         id: `existing-${image.id}`,
-        file: `/uploads/products/${image.image}`,
+        file: `/upload/products/${image.image}`,
         existing: true,
     })),
     previewImages: props.product.images.map((image) => ({
         id: `existing-${image.id}`,
-        file: `/uploads/products/${image.image}`,
+        file: `/upload/products/${image.image}`,
     })),
     deletedImagesIds: [],
     productName: props.product.name,
