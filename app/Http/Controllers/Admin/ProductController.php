@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductsImage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductValidationRequest;
 
 class ProductController extends Controller
