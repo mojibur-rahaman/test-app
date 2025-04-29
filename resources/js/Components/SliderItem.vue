@@ -47,7 +47,7 @@ const decrementQuantity = (id) => {
         <Link :href="route('product.view', { product_id: props.product.id })">
             <img
                 class="h-auto max-sm:h-[156px] p-2 md:p-4 pb-4 rounded-lg mx-auto"
-                :src="`/uploads/products/${props.product.images[0].image}`"
+                :src="`/upload/products/${props.product.images[0].image}`"
                 alt="product image"
             />
         </Link>
