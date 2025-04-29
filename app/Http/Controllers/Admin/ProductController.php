@@ -55,7 +55,7 @@ class ProductController extends Controller
 
             if($validatedData['productImages']){ 
                 
-                $path='uploads/products/';
+                $path='upload/products/';
                 $i=1;
                 
                 foreach ($validatedData['productImages'] as $imageData) { 
@@ -114,7 +114,7 @@ class ProductController extends Controller
         $product->save(); // Save updated product details
 
         // Define upload path
-        $path = 'uploads/products/';
+        $path = 'upload/products/';
 
         // Insert new product images
         if($imageCounter <= 2){
