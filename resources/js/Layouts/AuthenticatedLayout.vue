@@ -1,7 +1,7 @@
 <script setup>
 import { Link, Head } from "@inertiajs/vue3";
 import { ref } from "vue";
-import MaltipaleSearchForm from "@/components/maltipaleSearchForm.vue";
+import MaltipaleSearchForm from "@/Components/MaltipaleSearchForm.vue";
 const Open = ref(false);
 const NavOpen = ref(true);
 </script>
