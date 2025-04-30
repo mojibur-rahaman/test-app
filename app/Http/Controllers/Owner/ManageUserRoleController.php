@@ -24,14 +24,13 @@ class ManageUserRoleController extends Controller
         return Inertia::render('Owner/EditUser',['user' => $user]); 
     } 
 
-    public function store(Request $request) {  
+    public function store(Request $request) { 
         $validatedData = $request->validate([
                             'name' => 'required|string',
-                            'required|string|lowercase|email|max:255|unique:'.User::class,
+                            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
                             'role' => 'required|string',
                             'password' => 'required|confirmed|min:8', 
-                        ]);  
-
+                        ]);    
         if($validatedData){
           // Inset User Information ----------------------------------->
           User::create([

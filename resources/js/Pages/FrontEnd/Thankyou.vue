@@ -24,7 +24,7 @@ const props = defineProps({
             </div>
             <!-- thank you content -->
             <div class="absolute w-full md:w-1/2 left-0 md:left-1/4 top-0">
-                <div class="text-center mt-8">
+                <div class="text-center mt-8 mb-6 md:mb-0">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -48,6 +48,33 @@ const props = defineProps({
                         }}
                     </p>
                     <div class="grid md:grid-cols-2 gap-4 mt-6">
+                        <div
+                            class="bg-white w-3/4 md:w-full mx-auto shadow-lg rounded"
+                        >
+                            <p class="text-xl font-bold text-center mt-6">
+                                Your Order Summary
+                            </p>
+                            <div class="p-4">
+                                <div class="flex justify-between">
+                                    <span>Subtotal:</span>
+                                    <span class="font-semibold text-gray-700"
+                                        >৳ {{ props.order.total - 120 }}</span
+                                    >
+                                </div>
+                                <div class="flex justify-between mt-2">
+                                    <span>Shipping:</span>
+                                    <span class="font-semibold text-gray-700"
+                                        >৳ 120</span
+                                    >
+                                </div>
+                                <div class="flex justify-between mt-2">
+                                    <span>Total:</span>
+                                    <span class="font-semibold text-gray-800"
+                                        >৳ {{ props.order.total }}</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
                         <div
                             class="bg-white w-3/4 md:w-full min-h-36 mx-auto shadow-lg rounded"
                         >
@@ -95,33 +122,6 @@ const props = defineProps({
                                     </svg>
                                     Connect Us With Youtube
                                 </button>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white w-3/4 md:w-full mx-auto shadow-lg rounded"
-                        >
-                            <p class="text-xl font-bold text-center mt-6">
-                                Your Order Summary
-                            </p>
-                            <div class="p-4">
-                                <div class="flex justify-between">
-                                    <span>Subtotal:</span>
-                                    <span class="font-semibold text-gray-700"
-                                        >৳ {{ props.order.total - 120 }}</span
-                                    >
-                                </div>
-                                <div class="flex justify-between mt-2">
-                                    <span>Shipping:</span>
-                                    <span class="font-semibold text-gray-700"
-                                        >৳ 120</span
-                                    >
-                                </div>
-                                <div class="flex justify-between mt-2">
-                                    <span>Total:</span>
-                                    <span class="font-semibold text-gray-800"
-                                        >৳ {{ props.order.total }}</span
-                                    >
-                                </div>
                             </div>
                         </div>
                     </div>
