@@ -1,11 +1,11 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import Checkbox from "@/Components/Checkbox.vue";
+import GuestLayout from "@/Layouts/GuestLayout.vue";
+import InputError from "@/Components/InputError.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInput from "@/Components/TextInput.vue";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
 defineProps({
     canResetPassword: {
@@ -17,14 +17,14 @@ defineProps({
 });
 
 const form = useForm({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     remember: false,
 });
 
 const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
+    form.post(route("admin.login"), {
+        onFinish: () => form.reset("password"),
     });
 };
 </script>
@@ -32,12 +32,33 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Log in" />
+        <!-- Logo Section -->
+        <div class="w-80 mx-auto">
+            <img
+                src="/upload/asset/shutki-mart-logo.gif"
+                alt="Shutki Mart Logo"
+            />
+        </div>
+
+        <!-- Continue Shopping Button -->
+        <div
+            class="w-2/3 lg:w-1/4 py-2.5 mb-4 bg-red-600 hover:bg-green-600 text-white text-center mx-auto cursor-pointer rounded-md"
+        >
+            <Link
+                :href="route('home')"
+                as="button"
+                type="button"
+                class="w-full"
+            >
+                Continue Shopping
+            </Link>
+        </div>
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submit" class="w-80 mx-auto mb-4">
             <div>
                 <InputLabel for="email" value="Email" />
 

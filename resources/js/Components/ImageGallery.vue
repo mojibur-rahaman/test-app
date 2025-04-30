@@ -60,7 +60,7 @@ onBeforeUnmount(() => {
             <transition name="fade" mode="out-in" v-if="images.length > 0">
                 <img
                     :key="activeIndex"
-                    :src="`/uploads/asset/${images[activeIndex].image}`"
+                    :src="`/upload/asset/${images[activeIndex].image}`"
                     class="block max-w-full duration-300 h-auto"
                     alt="Slider image"
                 />

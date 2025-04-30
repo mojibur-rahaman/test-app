@@ -121,7 +121,8 @@ const props = defineProps({
             class="absolute bottom-12 w-[90%] flex justify-around items-center text-md lg:text-xl text-center animate-bounce"
         >
             <Link
-                href="/checkout"
+                :href="route('user.checkout')"
+                method="get"
                 as="button"
                 class="w-2/3 bg-green-400 text-white py-2 cursor-pointer"
             >

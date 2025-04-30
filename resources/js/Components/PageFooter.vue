@@ -1,4 +1,5 @@
 <script setup>
+import { Link } from "@inertiajs/vue3";
 import ApplicationLogo from "./ApplicationLogo.vue";
 </script>
 <template>
@@ -17,14 +18,14 @@ import ApplicationLogo from "./ApplicationLogo.vue";
                         </h2>
                         <ul class="text-gray-400 font-medium">
                             <li class="mb-4">
-                                <a href="/admin/login" class="hover:underline"
-                                    >Admin Login</a
-                                >
+                                <Link
+                                    :href="route('admin.login')"
+                                    class="hover:underline"
+                                    >Admin Login
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="https://tailwindcss.com/"
-                                    class="hover:underline"
+                                <a href="#" class="hover:underline"
                                     >Tailwind CSS</a
                                 >
                             </li>
@@ -75,9 +76,8 @@ import ApplicationLogo from "./ApplicationLogo.vue";
             />
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-400 sm:text-center"
-                    >© 2023
-                    <a href="https://flowbite.com/" class="hover:underline"
-                        >Flowbite™</a
+                    >© 2025
+                    <a href="#" class="hover:underline">M/S Itthadi Traders™</a
                     >. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">

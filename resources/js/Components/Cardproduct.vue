@@ -85,7 +85,7 @@ const decrementQuantity = (id) => {
             <div class="ps-2">
                 <img
                     class="h-auto w-24 rounded-md shadow-xl dark:shadow-gray-800"
-                    :src="`/uploads/products/${cardProduct.images[0].image}`"
+                    :src="`/upload/products/${cardProduct.images[0].image}`"
                     alt="Product Image"
                 />
             </div>

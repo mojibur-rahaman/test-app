@@ -175,7 +175,8 @@ watch(
                             <Link
                                 v-if="page.props.auth.user"
                                 as="button"
-                                href="/logout"
+                                :href="route('logout')"
+                                method="post"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                             >
                                 Log Out</Link
@@ -183,7 +184,8 @@ watch(
                             <Link
                                 v-else
                                 as="button"
-                                href="/login"
+                                :href="route('login')"
+                                method="get"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 >Log In</Link
                             >

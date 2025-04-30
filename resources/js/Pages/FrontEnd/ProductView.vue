@@ -201,7 +201,7 @@ const activeTab = ref(0);
                         ref="zoomImage"
                         :style="imageStyle"
                         class="h-auto max-w-full rounded-lg cursor-zoom-in transition-transform duration-500"
-                        :src="`/uploads/products/${images[showcaseIndex].image}`"
+                        :src="`/upload/products/${images[showcaseIndex].image}`"
                         alt="Main Showcase Image"
                     />
                 </div>
@@ -211,7 +211,7 @@ const activeTab = ref(0);
                         <img
                             class="h-auto max-w-full rounded-lg cursor-pointer"
                             @click="swapImage(index)"
-                            :src="`/uploads/products/${image.image}`"
+                            :src="`/upload/products/${image.image}`"
                             alt="Product Image"
                             :class="{
                                 'border-2 border-blue-500':
