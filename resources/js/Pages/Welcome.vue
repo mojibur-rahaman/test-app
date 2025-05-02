@@ -164,7 +164,7 @@ const handleDecrementedQuantity = (id) => {
         />
         <meta
             property="og:image"
-            content="https://shutkimart.com/images/og-image.jpg"
+            content="https://shutkimart.com/images/og-image.png"
         />
         <meta property="og:url" content="https://shutkimart.com" />
         <meta property="og:type" content="website" />
