@@ -2,7 +2,7 @@
 import { ref, computed, defineProps } from "vue";
 import AuthenticatedLayout from "../../Layouts/AuthenticatedLayout.vue";
 import PaginateLinks from "../../Components/PaginateLinks.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 const props = defineProps({
     products: {
         type: Object,
@@ -30,6 +30,7 @@ const abilableProducts = () => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <!-- page title-->
         <div

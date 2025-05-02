@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 import PaginateLinks from "@/Components/PaginateLinks.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 const props = defineProps({
@@ -72,6 +72,7 @@ const statusColor = (status) => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <!-- page titile-->
         <div

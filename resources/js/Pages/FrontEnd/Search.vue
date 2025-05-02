@@ -83,8 +83,18 @@ const handleDecrementedQuantity = (id) => {
 </script>
 
 <template>
+    <Head>
+        <title>অর্গানিক ও স্বাস্থ্যসম্মত শুটকির অনলাইন বাজার</title>
+        <meta
+            name="description"
+            content="ShutkiMart থেকে অর্ডার করুন লাক্ষা, লইট্টা, ছুরি, চ্যাপা, ফাইসা, চিংডি সহ কেমিকেল-মুক্ত, স্বাস্থ্যকর ও অর্গানিক দেশি শুটকি। ঘরে বসে পাচ্ছেন ফ্রি হোম ডেলিভারি।"
+        />
+        <meta
+            name="keywords"
+            content="ShutkiMart, শুটকি, অর্গানিক শুটকি, লইট্টা শুটকি, লাক্ষা শুটকি, দেশি শুটকি, কেমিকেল মুক্ত শুটকি,শুটকিমার্ট, ফ্রি হোম ডেলিভারি"
+        />
+    </Head>
     <GuestLayout>
-        <Head title="Shutki Mart (Online dry fish seller)" />
         <Card :productCount="cardItems" :totalPrice="totalPrice"
             ><Cardproduct
                 :cardProducts="addToCards"

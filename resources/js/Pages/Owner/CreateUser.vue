@@ -21,8 +21,8 @@ const submit = () => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <OwnerLayout>
-        <Head title="Register" />
         <!-- page titile-->
         <div
             class="flex bg-white px-4 py-2 shadow-lg justify-between items-center rounded-lg"

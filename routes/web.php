@@ -18,7 +18,7 @@ use App\Http\Controllers\Owner\OwnerDashboardController;
 //Guest Routes ------------------------------------------------------------>>
 Route::controller(FrontEndController::class)->group(function(){
     Route::get('/','index')->name('home');
-    Route::get('/product/{product_id}','prodcutView')->name('product.view');
+    Route::get('/product/{slug}','prodcutView')->name('product.view');
 });
 Route::get('/search',[SearchController::class,'searchProduct'])->name('user.search');
 // Check Out Manage -------------------------------------------------------->>

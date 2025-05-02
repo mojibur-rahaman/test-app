@@ -2,7 +2,7 @@
 import InputBox from "@/Components/InputBox.vue";
 import InputSelect from "@/Components/InputSelect.vue";
 import OwnerLayout from "@/Layouts/OwnerLayout.vue";
-import { Link, useForm } from "@inertiajs/vue3";
+import { Link, useForm, Head } from "@inertiajs/vue3";
 const props = defineProps({
     user: {
         type: Object,
@@ -21,6 +21,7 @@ const updateUserRole = () => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <OwnerLayout>
         <!-- page titile-->
         <div

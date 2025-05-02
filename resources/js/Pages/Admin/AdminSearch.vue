@@ -43,7 +43,7 @@ const statusColor = (status) => {
 };
 </script>
 <template>
-    <Head title="Shutki Mart (Online dry fish seller)" />
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <!------------- Products Search Details----------------------->
         <div class="container mx-auto px-2 bg-slate-50 p-4 mb-4 text-center">

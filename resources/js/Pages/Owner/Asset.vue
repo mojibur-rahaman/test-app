@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useForm, router } from "@inertiajs/vue3";
 import OwnerLayout from "@/Layouts/OwnerLayout.vue";
+import Head from "@inertiajs/vue3";
 const modelOpen = ref(false);
 let removeBannerId;
 const inputModelOpen = ref(false);
@@ -50,6 +51,7 @@ const removeBanner = () => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <OwnerLayout>
         <!-- page titile-->
         <div

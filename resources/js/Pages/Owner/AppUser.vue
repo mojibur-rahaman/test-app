@@ -1,7 +1,7 @@
 <script setup>
 import PaginateLinks from "@/Components/PaginateLinks.vue";
 import OwnerLayout from "@/Layouts/OwnerLayout.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 const props = defineProps({
     users: {
         type: Object,
@@ -34,6 +34,7 @@ const userRole = (role) => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <OwnerLayout>
         <!-- page titile-->
         <div

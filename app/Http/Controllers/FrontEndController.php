@@ -38,12 +38,22 @@ class FrontEndController extends Controller
         ]); 
     }
     
-    public function prodcutView ($product_id){
-        $product = Product::with('images')->findOrFail($product_id); 
-        $relatedProducts = Product::with('images')->where('category', $product->category)->where('status',1)->limit(10)->get();
-        return Inertia::render('FrontEnd/ProductView',
-                                [   'product' => $product,
-                                    'relatedProducts'=> $relatedProducts
-                                ]);
+    public function prodcutView($slug)
+    {
+        $product = Product::with('images')->where('slug', $slug)->first();
+        if($product){
+                $relatedProducts = Product::with('images')
+                ->where('category', $product->category)
+                ->where('status', 1)
+                ->limit(10)
+                ->get();
+        
+            return Inertia::render('FrontEnd/ProductView', [
+                'product' => $product,
+                'relatedProducts' => $relatedProducts
+            ]);
+        }
+    
+        return to_route('home');
     }
 }

@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import OrderNowButton from "../../Components/OrderNowButton.vue";
+import { Head } from "@inertiajs/vue3";
 
 // Swiper Js Handler ..................................................>>
 // Swiper handler //
@@ -178,6 +179,45 @@ const previewMarkDownSortDsc = computed(() => {
 const activeTab = ref(0);
 </script>
 <template>
+    <Head>
+        <title>{{ product.name }} - কিনুন অর্গানিক ও স্বাস্থ্যকর শুটকি</title>
+        <meta
+            name="description"
+            :content="
+                product.shortDesc ||
+                'দেশি প্রিমিয়াম শুটকি এখন ঘরে বসে অর্ডার করুন। ফ্রি হোম ডেলিভারি।'
+            "
+        />
+        <meta
+            name="keywords"
+            :content="`শুটকি, ${product.slug}, ShutkiMart, অর্গানিক শুটকি, দেশি শুটকি, শুটকিমার্ট `"
+        />
+        <meta
+            property="og:title"
+            :content="`${product.en_name} - ShutkiMart`"
+        />
+        <meta
+            property="og:description"
+            :content="
+                product.sortDesc ||
+                'স্বাস্থ্যকর নিরাপদ সামুদ্রিক দেশি শুটকি ঘরে বসে অর্ডার করুন।'
+            "
+        />
+        <meta
+            property="og:image"
+            :content="`https://shutkimart.com/upload/products/${product.images[0].image}`"
+        />
+        <meta
+            property="og:url"
+            :content="`https://shutkimart.com/product/${product.slug}`"
+        />
+        <meta property="og:type" content="product" />
+        <meta name="robots" content="index, follow" />
+        <link
+            :rel="'canonical'"
+            :href="`https://shutkimart.com/product/${product.slug}`"
+        />
+    </Head>
     <GuestLayout>
         <Card :productCount="cardItems" :totalPrice="totalPrice"
             ><cardproduct

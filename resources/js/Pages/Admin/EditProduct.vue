@@ -27,6 +27,8 @@ const form = useForm({
     })),
     deletedImagesIds: [],
     productName: props.product.name,
+    englishName: props.product.en_name,
+    slug: props.product.slug,
     productPrice: props.product.price,
     productWeight: props.product.weight,
     productWeightDesc: props.product.weightDesc,
@@ -44,9 +46,6 @@ const updateProduct = () => {
         route("admin.products.update", { product_id: props.product.id }),
         {
             onSuccess: () => form.reset(),
-            onError: (errors) => {
-                console.log(errors);
-            },
         }
     );
 };
@@ -236,6 +235,20 @@ const addText = () => {
                         type="text"
                         placeholder="Product Name"
                         :message="form.errors.productName"
+                    />
+                    <InputBox
+                        v-model="form.englishName"
+                        label="Product English Name"
+                        type="text"
+                        placeholder="Product English Name"
+                        :message="form.errors.productName"
+                    />
+                    <InputBox
+                        v-model="form.slug"
+                        label="English Slug Name"
+                        type="text"
+                        placeholder="Enter English Slug Name"
+                        :message="form.errors.slug"
                     />
                     <InputBox
                         v-model="form.productPrice"

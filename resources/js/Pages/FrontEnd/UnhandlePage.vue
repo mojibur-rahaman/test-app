@@ -6,7 +6,7 @@ import { Head, Link } from "@inertiajs/vue3";
 
 <template>
     <GuestLayout>
-        <Head title="Shutki Mart (Online dry fish seller)" />
+        <Head title="অর্গানিক ও স্বাস্থ্যসম্মত শুটকির অনলাইন বাজার" />
         <!------------- Products Search Details----------------------->
         <!------------- Product Not Found ---------------------------->
         <div

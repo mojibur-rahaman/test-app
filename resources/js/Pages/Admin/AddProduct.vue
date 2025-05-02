@@ -4,7 +4,7 @@ import InputBox from "../../Components/InputBox.vue";
 import InputCheckBox from "../../Components/InputCheckBox.vue";
 import InputSelect from "../../Components/InputSelect.vue";
 import TextArea from "../../Components/TextArea.vue";
-import { Link, useForm } from "@inertiajs/vue3";
+import { Link, useForm, Head } from "@inertiajs/vue3";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { ref, computed } from "vue";
@@ -12,6 +12,8 @@ const form = useForm({
     productImages: [],
     previewImages: [],
     productName: null,
+    englishName: null,
+    slug: null,
     productPrice: null,
     productWeight: null,
     productWeightDesc: null,
@@ -79,6 +81,7 @@ const addText = () => {
 </script>
 
 <template>
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <!-- page titile-->
         <div
@@ -209,6 +212,20 @@ const addText = () => {
                         type="text"
                         placeholder="Product Name"
                         :message="form.errors.productName"
+                    />
+                    <InputBox
+                        v-model="form.englishName"
+                        label="English Name"
+                        type="text"
+                        placeholder="Type English Name"
+                        :message="form.errors.englishName"
+                    />
+                    <InputBox
+                        v-model="form.slug"
+                        label="Product Slug English"
+                        type="text"
+                        placeholder="Type English Slug Name"
+                        :message="form.errors.slug"
                     />
                     <InputBox
                         v-model="form.productPrice"

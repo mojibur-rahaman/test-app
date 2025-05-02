@@ -39,7 +39,9 @@ class ProductController extends Controller
             // Inset Product Information ----------------------------------->
           $product = Product::create([
                 'name' => $validatedData['productName'],
-                'price' => $validatedData['productPrice'],
+                'en_name' => $validatedData['englishName'],
+                'slug' => $validatedData['slug'],
+                'price' => $validatedData['productPrice'], 
                 'weight' => $validatedData['productWeight'],
                 'weightDesc' => $validatedData['productWeightDesc'],
                 'category' => $validatedData['productCategory'],
@@ -101,6 +103,8 @@ class ProductController extends Controller
         $imageCounter = ProductsImage::where('product_id', '=',$product_id)->count();  
         // Update product details
         $product->name = $validatedData['productName'];
+        $product->en_name = $validatedData['englishName'];
+        $product->slug = $validatedData['slug']; 
         $product->price = $validatedData['productPrice'];
         $product->weight = $validatedData['productWeight'];
         $product->weightDesc = $validatedData['productWeightDesc'];

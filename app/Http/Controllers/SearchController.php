@@ -16,7 +16,8 @@ class SearchController extends Controller
             'query'       => 'required|string|max:255'  
         ]);  
         $products = Product::with('images')->when($request->query('query'), function ($query) use ($request) {
-            $query->where('name', 'LIKE', '%' . $request->query('query') . '%');
+            $query->where('name', 'LIKE', '%' . $request->query('query') . '%')
+                  ->orWhere('en_name','LIKE', '%' . $request->query('query') . '%');
         })->get(); 
         
         return Inertia::render('FrontEnd/Search', ['products' => $products,'query' => $request['query']]);

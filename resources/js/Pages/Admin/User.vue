@@ -1,7 +1,7 @@
 <script setup>
 import PaginateLinks from "@/Components/PaginateLinks.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 const props = defineProps({
     customers: {
         type: Object,
@@ -20,6 +20,7 @@ const dateFormat = (dateString) => {
 };
 </script>
 <template>
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <!-- page titile-->
         <div

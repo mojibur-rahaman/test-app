@@ -1,7 +1,7 @@
 <script setup>
 import InputSelect from "@/Components/InputSelect.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Link, useForm } from "@inertiajs/vue3";
+import { Link, useForm, Head } from "@inertiajs/vue3";
 const props = defineProps({
     order: {
         type: Object,
@@ -39,6 +39,7 @@ const updateOrderStatus = () => {
 </script>
 
 <template>
+    <Head title="শুটকিমার্ট" />
     <AuthenticatedLayout>
         <div
             class="flex bg-white px-4 py-2 shadow-lg justify-between items-center rounded-lg"

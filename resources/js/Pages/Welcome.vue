@@ -140,8 +140,51 @@ const handleDecrementedQuantity = (id) => {
 };
 </script>
 <template>
+    <Head>
+        <title>অর্গানিক ও স্বাস্থ্যসম্মত শুটকির অনলাইন বাজার</title>
+        <meta
+            name="description"
+            content="ShutkiMart থেকে অর্ডার করুন লাক্ষা, লইট্টা, ছুরি, চ্যাপা, ফাইসা, চিংডি সহ কেমিকেল-মুক্ত, স্বাস্থ্যকর ও অর্গানিক দেশি শুটকি। ঘরে বসে পাচ্ছেন ফ্রি হোম ডেলিভারি।"
+        />
+        <meta
+            name="keywords"
+            content="ShutkiMart, শুটকি, অর্গানিক শুটকি, লইট্টা শুটকি, লাক্ষা শুটকি, দেশি শুটকি, কেমিকেল মুক্ত শুটকি,শুটকিমার্ট, ফ্রি হোম ডেলিভারি"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://shutkimart.com/" />
+
+        <!-- Open Graph (Facebook & others) -->
+        <meta
+            property="og:title"
+            content="ShutkiMart - অর্গানিক শুটকির বিশ্বস্ত ঠিকানা"
+        />
+        <meta
+            property="og:description"
+            content="স্বাস্থ্যকর, কেমিকেল মুক্ত ও প্রিমিয়াম মানের শুটকি কিনুন এখনই ShutkiMart থেকে।"
+        />
+        <meta
+            property="og:image"
+            content="https://shutkimart.com/images/og-image.jpg"
+        />
+        <meta property="og:url" content="https://shutkimart.com" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="ShutkiMart - অর্গানিক শুটকির বিশ্বস্ত ঠিকানা"
+        />
+        <meta
+            name="twitter:description"
+            content="স্বাস্থ্যকর, কেমিকেল মুক্ত ও প্রিমিয়াম মানের শুটকি কিনুন এখনই ShutkiMart থেকে।"
+        />
+        <meta
+            name="twitter:image"
+            content="https://shutkimart.com/upload/asset/og-image.jpg"
+        />
+    </Head>
     <GuestLayout>
-        <Head title="Shutki Mart (Online dry fish seller)" />
         <Card :productCount="cardItems" :totalPrice="totalPrice"
             ><Cardproduct
                 :cardProducts="addToCards"

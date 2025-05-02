@@ -44,7 +44,10 @@ const decrementQuantity = (id) => {
         class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
         <!----Product Image-->
-        <Link :href="route('product.view', { product_id: props.product.id })">
+        <Link
+            :href="route('product.view', { slug: props.product.slug })"
+            @click="addToCardProduct(props.product)"
+        >
             <img
                 class="h-auto max-sm:h-[156px] p-2 md:p-4 pb-4 rounded-lg mx-auto"
                 :src="`/upload/products/${props.product.images[0].image}`"

@@ -4,7 +4,9 @@ import ApplicationLogo from "./ApplicationLogo.vue";
 </script>
 <template>
     <footer class="bg-gray-900">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div
+            class="mx-auto w-full max-w-screen-xl mb-6 md:mb-0 p-4 py-6 lg:py-8"
+        >
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <ApplicationLogo class="text-white" />
@@ -77,8 +79,8 @@ import ApplicationLogo from "./ApplicationLogo.vue";
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-400 sm:text-center"
                     >© 2025
-                    <a href="#" class="hover:underline">M/S Itthadi Traders™</a
-                    >. All Rights Reserved.
+                    <a href="#" class="hover:underline">Rowshan Monjor™</a>. All
+                    Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <a href="#" class="text-gray-400 hover:text-gray-100">

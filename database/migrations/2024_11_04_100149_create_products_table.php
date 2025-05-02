@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id(); 
-
+            $table->id();  
             $table->string('name');
+            $table->string('en_name');
+            $table->string('slug')->unique();
             $table->integer('price');
             $table->integer('weight');
             $table->string('weightDesc');
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->mediumText('sortDesc')->nullable();
             $table->longText('longDesc')->nullable();
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->timestamps();
         });
