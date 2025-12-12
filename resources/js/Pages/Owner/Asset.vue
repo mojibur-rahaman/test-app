@@ -1,8 +1,7 @@
 <script setup>
+import OwnerLayout from "@/Layouts/OwnerLayout.vue";
 import { ref } from "vue";
 import { useForm, router } from "@inertiajs/vue3";
-import OwnerLayout from "@/Layouts/OwnerLayout.vue";
-import Head from "@inertiajs/vue3";
 const modelOpen = ref(false);
 let removeBannerId;
 const inputModelOpen = ref(false);

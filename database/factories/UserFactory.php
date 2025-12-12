@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'name' => 'Md. Mojibur Rahaman',
             'email' => 'arttheearth100@gmail.com', 
             'password' => static::$password ??= Hash::make('10011001'),
-            'role' => 2, 
+            'role' => 2,
         ];
     }
 

@@ -4,6 +4,10 @@ import { Link } from "@inertiajs/vue3";
 
 const cardOpen = ref(false);
 const props = defineProps({
+    cardProducts: {
+        type: Object,
+        Required: true,
+    },
     productCount: {
         type: Number,
         default: 0,
@@ -13,6 +17,38 @@ const props = defineProps({
         Required: true,
     },
 });
+// Checkout Event Tracking Using GTM
+const trackInitiateCheckout = (cardProducts, totalPrice, productCount) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        event: "initiate_checkout",
+        // For GA4
+        ecommerce: {
+            currency: "BDT",
+            value: totalPrice,
+            items: cardProducts.map((product) => ({
+                item_id: product.id,
+                item_name: product.name,
+                price: product.price,
+                quantity: product.quantity,
+                item_category: product.category || "Shutki",
+            })),
+        },
+        // For Facebook Pixel
+        fb_event_data: {
+            content_type: "product",
+            content_ids: cardProducts.map((p) => p.id),
+            contents: cardProducts.map((p) => ({
+                id: p.id,
+                quantity: p.quantity,
+                item_price: p.price,
+            })),
+            value: totalPrice,
+            currency: "BDT",
+            num_items: productCount,
+        },
+    });
+};
 </script>
 <template>
     <!-- drawer init and toggle -->
@@ -121,9 +157,15 @@ const props = defineProps({
             class="absolute bottom-12 w-[90%] flex justify-around items-center text-md lg:text-xl text-center animate-bounce"
         >
             <Link
+                @click="
+                    trackInitiateCheckout(
+                        props.cardProducts,
+                        props.totalPrice,
+                        props.productCount
+                    )
+                "
                 :href="route('user.checkout')"
                 method="get"
-                as="button"
                 class="w-2/3 bg-green-400 text-white py-2 cursor-pointer"
             >
                 চেক আউট করুন

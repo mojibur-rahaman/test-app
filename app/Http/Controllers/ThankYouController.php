@@ -11,7 +11,8 @@ class ThankYouController extends Controller
 {
     public function thanks(){
         $user = Auth::user();
-        $order = Order::where('user_id', $user->id)->latest()->first();
+        $order = Order::with('items.product')->where('user_id', $user->id)->latest()->first();
+       
         if($order){
             return Inertia::render('FrontEnd/Thankyou',['order' => $order]);
         } 

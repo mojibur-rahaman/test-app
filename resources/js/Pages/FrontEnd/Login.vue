@@ -15,6 +15,12 @@ onMounted(() => {
         addToCards.value = saveAddToCards;
     }
 });
+// Get Total
+const totalPrice = computed(() => {
+    return addToCards.value.reduce((acc, addToCard) => {
+        return acc + addToCard.price * addToCard.quantity;
+    }, 0);
+});
 // State variables
 const open = ref(false);
 const mobile = ref("");
@@ -157,7 +163,11 @@ const resetForm = () => {
             </span>
         </div>
         <!------------- Buy Now Button in Footer ---------------------->
-        <OrderNowButton :productCount="cardItems" />
+        <OrderNowButton
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
+        />
     </GuestLayout>
 </template>
 

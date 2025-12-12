@@ -17,7 +17,34 @@ const emit = defineEmits([
     "decrementedQuantity",
 ]);
 const addToCardProduct = (product) => {
+    // GTM Tracking only when product is being added first time
+    const isAlreadyInCart = props.cardProduct.some((p) => p.id === product.id);
+    if (!isAlreadyInCart) {
+        trackAddToCartOnGTM(product);
+    }
     emit("addedToCardProduct", product);
+    // trackAddToCartOnGTM(product);
+};
+
+// AddToCart Product Tracking For Google Taq Manager
+const trackAddToCartOnGTM = (product) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        event: "add_to_cart",
+        ecommerce: {
+            currency: "BDT",
+            value: product.price,
+            items: [
+                {
+                    item_id: product.id,
+                    item_name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    item_category: product.category || "Shutki",
+                },
+            ],
+        },
+    });
 };
 // Check if product is in the cardProduct array
 const isProductInCart = computed(() => {
@@ -44,10 +71,7 @@ const decrementQuantity = (id) => {
         class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
         <!----Product Image-->
-        <Link
-            :href="route('product.view', { slug: props.product.slug })"
-            @click="addToCardProduct(props.product)"
-        >
+        <Link :href="route('product.view', { slug: props.product.slug })">
             <img
                 class="h-auto max-sm:h-[156px] p-2 md:p-4 pb-4 rounded-lg mx-auto"
                 :src="`/upload/products/${props.product.images[0].image}`"

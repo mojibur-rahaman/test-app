@@ -1,7 +1,24 @@
 <script setup>
+import { computed, onMounted, ref } from "vue";
 import OrderNowButton from "@/Components/OrderNowButton.vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import { Head, Link } from "@inertiajs/vue3";
+const addToCards = ref([]);
+const cardItems = computed(() => {
+    return addToCards.value.length;
+});
+onMounted(() => {
+    const saveAddToCards = JSON.parse(localStorage.getItem("addToCards"));
+    if (saveAddToCards) {
+        addToCards.value = saveAddToCards;
+    }
+});
+// Get Total
+const totalPrice = computed(() => {
+    return addToCards.value.reduce((acc, addToCard) => {
+        return acc + addToCard.price * addToCard.quantity;
+    }, 0);
+});
 </script>
 
 <template>
@@ -48,6 +65,10 @@ import { Head, Link } from "@inertiajs/vue3";
             </div>
         </div>
         <!------------- Buy Now Button in Footer ---------------------->
-        <OrderNowButton :productCount="cardItems" />
+        <OrderNowButton
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
+        />
     </GuestLayout>
 </template>

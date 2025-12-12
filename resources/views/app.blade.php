@@ -34,8 +34,10 @@
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-KCLGDSL4');
+          })(window,document,'script','dataLayer','GTM-NGK7TR5Q');
         </script>
+        <!--GTM-KCLGDSL4--orginal -->
+        <!--GTM-NGK7TR5Q--test -->
         <!-- End Google Tag Manager -->
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
@@ -43,7 +45,7 @@
     </head>
     <body class="font-sans antialiased">
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCLGDSL4"
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGK7TR5Q"
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
       </noscript>
       <!-- End Google Tag Manager (noscript) -->

@@ -185,7 +185,10 @@ const handleDecrementedQuantity = (id) => {
         />
     </Head>
     <GuestLayout>
-        <Card :productCount="cardItems" :totalPrice="totalPrice"
+        <Card
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
             ><Cardproduct
                 :cardProducts="addToCards"
                 @cardProductDeleted="handleCardProductDeleted"
@@ -382,6 +385,10 @@ const handleDecrementedQuantity = (id) => {
         <!------------- dynamic Package Program ---------------------->
 
         <!------------- Buy Now Button in Footer ---------------------->
-        <OrderNowButton :productCount="cardItems" />
+        <OrderNowButton
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
+        />
     </GuestLayout>
 </template>

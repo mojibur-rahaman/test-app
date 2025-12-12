@@ -1,13 +1,56 @@
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import { Head, Link } from "@inertiajs/vue3";
-import { defineProps } from "vue";
+import { defineProps, onMounted } from "vue";
 const props = defineProps({
     order: {
         type: Object,
         required: true,
     },
 });
+onMounted(() => {
+    if (props.order) {
+        trackPurchaseEvent(props.order);
+    }
+});
+
+const trackPurchaseEvent = (order) => {
+    window.dataLayer = window.dataLayer || [];
+
+    // Clear previous ecommerce and fb_event_data if any
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({ fb_event_data: null });
+
+    // Push clean purchase data
+    window.dataLayer.push({
+        event: "purchase",
+        ecommerce: {
+            transaction_id: order.id,
+            value: order.total,
+            currency: "BDT",
+            items: order.items.map((item) => ({
+                item_id: item.product_id,
+                item_name: item.product.name,
+                price: item.product.price,
+                quantity: item.qty,
+                item_category: item.product.category || "Shutki",
+            })),
+        },
+        fb_event_data: {
+            content_type: "product",
+            content_ids: order.items.map((item) => item.product_id),
+            contents: order.items.map((item) => ({
+                id: item.product_id,
+                quantity: item.qty,
+                item_price: item.product.price,
+            })),
+            value: order.total,
+            currency: "BDT",
+            num_items: order.items.reduce((acc, item) => acc + item.qty, 0),
+            order_id: order.id,
+        },
+    });
+};
 </script>
 <template>
     <Head>

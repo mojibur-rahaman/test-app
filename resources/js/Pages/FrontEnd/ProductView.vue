@@ -63,7 +63,41 @@ onMounted(() => {
     if (saveAddToCards) {
         addToCards.value = saveAddToCards;
     }
+    //Tracking View Item
+    if (props.product) {
+        trackViewItemEvent(props.product);
+    }
 });
+const trackViewItemEvent = (product) => {
+    window.dataLayer = window.dataLayer || [];
+
+    // Clear previous ecommerce and fb_event_data if any
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({ fb_event_data: null });
+
+    // Push clean purchase data
+    window.dataLayer.push({
+        event: "viewContent",
+        ecommerce: {
+            value: product.price,
+            currency: "BDT",
+            items: [
+                {
+                    item_id: product.id,
+                    item_name: product.name,
+                    item_category: product.category,
+                },
+            ],
+        },
+        fb_event_data: {
+            content_type: "product",
+            content_ids: [product.id],
+            content_name: product.name,
+            value: product.price,
+            currency: "BDT",
+        },
+    });
+};
 // Get Total
 const totalPrice = computed(() => {
     return addToCards.value.reduce((acc, addToCard) => {
@@ -96,10 +130,31 @@ const handleAddToCardProduct = (product) => {
             ...product,
             quantity: 1,
         });
+        trackAddToCartOnGTM(product);
     }
 
     // Save to localStorage
     saveProductToLocalStorage();
+};
+// AddToCart Product Tracking For Google Taq Manager
+const trackAddToCartOnGTM = (product) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        event: "add_to_cart",
+        ecommerce: {
+            currency: "BDT",
+            value: product.price,
+            items: [
+                {
+                    item_id: product.id,
+                    item_name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    item_category: product.category || "Shutki",
+                },
+            ],
+        },
+    });
 };
 // save product to localstorage
 const saveProductToLocalStorage = () => {
@@ -184,7 +239,7 @@ const activeTab = ref(0);
         <meta
             name="description"
             :content="
-                product.shortDesc ||
+                product.metaDescription ||
                 'দেশি প্রিমিয়াম শুটকি এখন ঘরে বসে অর্ডার করুন। ফ্রি হোম ডেলিভারি।'
             "
         />
@@ -199,7 +254,7 @@ const activeTab = ref(0);
         <meta
             property="og:description"
             :content="
-                product.sortDesc ||
+                product.metaDescription ||
                 'স্বাস্থ্যকর নিরাপদ সামুদ্রিক দেশি শুটকি ঘরে বসে অর্ডার করুন।'
             "
         />
@@ -594,6 +649,10 @@ const activeTab = ref(0);
         <!------------- Related Products --------------------->
 
         <!------------- Buy Now Button in Footer ---------------------->
-        <OrderNowButton :productCount="cardItems" />
+        <OrderNowButton
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
+        />
     </GuestLayout>
 </template>

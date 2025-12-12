@@ -168,6 +168,10 @@ const handleDecrementedQuantity = (id) => {
             </div>
         </div>
         <!------------- Buy Now Button in Footer ---------------------->
-        <OrderNowButton :productCount="cardItems" />
+        <OrderNowButton
+            :cardProducts="addToCards"
+            :productCount="cardItems"
+            :totalPrice="totalPrice"
+        />
     </GuestLayout>
 </template>
