@@ -196,7 +196,11 @@ const handleDecrementedQuantity = (id) => {
                 @decrementedQuantity="handleDecrementedQuantity"
         /></Card>
         <!-------------- Image Gallery------------------------>
-        <ImageGallery :desktopBanners :mobileBanners />
+        <!-- <ImageGallery :desktopBanners :mobileBanners /> -->
+        <ImageGallery
+            :desktopBanners="desktopBanners"
+            :mobileBanners="mobileBanners"
+        />
         <!-------------- Image Gallery------------------------>
 
         <!------------- Products Navigation------------------->
