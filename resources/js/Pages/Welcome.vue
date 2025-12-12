@@ -208,7 +208,7 @@ const handleDecrementedQuantity = (id) => {
         <!------------- Products Navigation------------------->
 
         <!------------- Package Program ---------------------->
-        <productsection
+        <Productsection
             id="package-shutki"
             :title="'শুটকীর প্যাকেজ'"
             :bg="'bg-green-100 dark:bg-green-900'"
@@ -240,11 +240,11 @@ const handleDecrementedQuantity = (id) => {
                     />
                 </swiper-slide>
             </swiper>
-        </productsection>
+        </Productsection>
         <!------------- Package Program ---------------------->
 
         <!------------- Popular Products --------------------->
-        <productsection
+        <Productsection
             id="best-selling-shutki"
             :title="'পপুলার শুটকী'"
             :bg="'bg-purple-100 dark:bg-purple-900'"
@@ -267,7 +267,7 @@ const handleDecrementedQuantity = (id) => {
                     v-for="mp_product in mp_products"
                     :key="mp_product.id"
                 >
-                    <slider-item
+                    <SliderItem
                         :product="mp_product"
                         :cardProduct="addToCards"
                         @addedToCardProduct="handleAddToCardProduct"
@@ -276,12 +276,12 @@ const handleDecrementedQuantity = (id) => {
                     />
                 </swiper-slide>
             </swiper>
-        </productsection>
+        </Productsection>
 
         <!------------- Popular Products --------------------->
 
         <!------------- Best Selling Products ---------------->
-        <productsection
+        <Productsection
             id="popular-shutki"
             :title="'বেস্ট সেলিং শুটকী'"
             :bg="'bg-red-100 dark:bg-red-900'"
@@ -304,7 +304,7 @@ const handleDecrementedQuantity = (id) => {
                     v-for="bs_product in bs_products"
                     :key="bs_product.id"
                 >
-                    <slider-item
+                    <SliderItem
                         :product="bs_product"
                         :cardProduct="addToCards"
                         @addedToCardProduct="handleAddToCardProduct"
@@ -313,11 +313,11 @@ const handleDecrementedQuantity = (id) => {
                     />
                 </swiper-slide>
             </swiper>
-        </productsection>
+        </Productsection>
         <!------------- Best Selling Products ---------------->
 
         <!------------- New Arrivle Products ---------------->
-        <productsection
+        <Productsection
             id="new-arrivle-shutki"
             :title="'নতুন শুটকী'"
             :bg="'bg-green-100 dark:bg-red-900'"
@@ -340,7 +340,7 @@ const handleDecrementedQuantity = (id) => {
                     v-for="na_product in na_products"
                     :key="na_product.id"
                 >
-                    <slider-item
+                    <SliderItem
                         :product="na_product"
                         :cardProduct="addToCards"
                         @addedToCardProduct="handleAddToCardProduct"
@@ -349,11 +349,11 @@ const handleDecrementedQuantity = (id) => {
                     />
                 </swiper-slide>
             </swiper>
-        </productsection>
+        </Productsection>
         <!------------- New Arrivle Products ---------------->
 
         <!------------- dynamic Package Program ---------------------->
-        <productsection
+        <Productsection
             id="all-shutki"
             :bg="'bg-blue-100'"
             :title="'এক নজরে সকল শুটকি '"
@@ -376,7 +376,7 @@ const handleDecrementedQuantity = (id) => {
                     v-for="mix_product in mix_products"
                     :key="mix_product.id"
                 >
-                    <slider-item
+                    <SliderItem
                         :product="mix_product"
                         :cardProduct="addToCards"
                         @addedToCardProduct="handleAddToCardProduct"
@@ -385,7 +385,7 @@ const handleDecrementedQuantity = (id) => {
                     />
                 </swiper-slide>
             </swiper>
-        </productsection>
+        </Productsection>
         <!------------- dynamic Package Program ---------------------->
 
         <!------------- Buy Now Button in Footer ---------------------->
